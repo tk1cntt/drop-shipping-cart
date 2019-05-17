@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Denmo 01",
+  "short_name": "Keep tabs history",
+  "version": "1.0.0",
+  "description":
+    "Mua hang ho",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css":["style.css"],
+      "js": ["jquery-2.2.3.min.js", "config.js", "tools.js", "tmall.js", "app.js"],
+      "run_at": "document_start",
+      "exclude_matches": ["https://www.youtube.com/*"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "alarms"
+  ],
+  "minimum_chrome_version": "60",
+  "icons": {
+    "16": "assets/list.png",
+    "48": "assets/list.png",
+    "128": "assets/list128.png"
+  },
+  "content_security_policy":
+    "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+}

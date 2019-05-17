@@ -1,0 +1,32 @@
+.chipo-box-info {
+    width: 496px;
+    font-size: 14px;
+    padding: 10px 10px 10px 0px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(241, 89, 34);
+    border-image: initial;
+    overflow: hidden;
+}
+
+.chipo-logo {
+    width: 100px;
+    float: left;
+    margin: 10px 10px 0px 20px;
+}
+
+.chipo-basic-info ul {
+    float: left;
+    width: 330px;
+    font-size: 16px;
+    padding: 5px 0px 5px 15px;
+}
+
+.chipo-basic-info #sell_price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.chipo-basic-info .text-chipo {
+    color: rgb(241, 89, 34);
+}
