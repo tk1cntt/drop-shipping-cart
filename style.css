@@ -30,3 +30,85 @@
 .chipo-basic-info .text-chipo {
     color: rgb(241, 89, 34);
 }
+
+.chipo-wrapper {
+    display: inline-block;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 2147483647;
+    color: rgb(255, 255, 255);
+    opacity: 0.9;
+    background: rgb(36, 41, 53);
+}
+
+.chipo-wrapper .chipo-alert {
+    display: inline-block;
+    width: 100%;
+    opacity: 0.95;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    box-shadow: none;
+    background-color: rgba(242, 99, 32, 0.52);
+    font-size: 12px;
+    padding: 15px;
+}
+
+.chipo-wrapper .chipo-content {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+}
+
+.chipo-wrapper .chipo-content .chipo-block {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    min-height: 67px;
+    text-align: center;
+    background: url(chrome-extension://ojecmeaghlcaiekkffhblonfnlcbepbl/images/bg-addon.png) left top repeat transparent;
+}
+
+.chipo-wrapper .chipo-content .chipo-block > ul {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.chipo-wrapper ul.chipo-list-inline > li {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.chipo-wrapper .chipo-content .chipo-block > ul > li {
+    display: inline-block;
+    float: left;
+}
+
+.chipo-wrapper ul.chipo-list-inline > li {
+    height: 67px;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid rgb(0, 0, 0);
+}
+
+.chipo-wrapper ul.chipo-list-inline > li a.btn {
+    margin-top: 13px;
+    font-weight: bold;
+    line-height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.75) 3px 4px 5px -1px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    border-radius: 3px;
+}
+
+.chipo-wrapper .chipo-content .chipo-link {
+    color: rgb(255, 255, 255);
+    float: left;
+    line-height: 67px;
+    padding-left: 25px;
+}

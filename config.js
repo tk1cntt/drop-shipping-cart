@@ -126,17 +126,46 @@ var rules = {
 //tool.getNewestVersion();
 
 var addon = {};
-///*
-$.get(chrome.runtime.getURL('../template/toolbar.html'), function(data) {
-  var html = $.parseHTML(data);
-  $(html)
-    .find('a._chipo-home')
-    .attr('href', tool.baseUrl);
-  $(html)
-    .find('a._link-detail-cart')
-    .attr('href', tool.getCartUrl);
-  addon.toolbar = html;
-});
+addon.toolbar = `
+    <div class="chipo-wrapper _chipo-wrapper">
+      <div class="chipo-alert _alert-shop-credible ">
+          <strong data-spm-anchor-id="a220o.1000855.0.i1.594d5edcto79io">QUÝ KHÁCH VUI LÒNG KHÔNG SỬ DỤNG GOOGLE TRANSLATE KHI CLICK VÀO NÚT ĐẶT HÀNG</strong>
+          <br>
+          <p class="_chipo-message box-warning-ao hidden">
+              <span></span>
+              <span class="close-warning-ao _close-warning-ao"></span>
+          </p>
+      </div>
+      <div class="chipo-content">
+          <div class="chipo-block">
+              <ul class="chipo-list-inline">
+                  <li class="">
+                      <!--<a id='_add-to-favorite' href='javascript:;' class='save-product-ao'> Lưu sản phẩm </a>-->
+                      <a href="https://chipo.vn/" style="color: white" target="_blank" class="_chipo-home">Trang chủ</a>
+                  </li>
+                  <li>
+                      <label>
+                          <input type="checkbox" name="is_translate" class="_is_translate" id="_is_translate" checked="checked"><span></span>
+                          Dịch tự động
+                      </label>
+                      <label>
+                      </label>
+                  </li>
+                  <li>
+                      <a href="javascript:;" class="btn _addToCart btn-order" data-target="#myChipoModal-order">
+                          <i class="pull-left"></i> ĐẶT HÀNG CHIPO
+                      </a>
+                      <a href="https://chipo.vn/backend/#/gio-hang" target="_blank" class="chipo-link _link-detail-cart">
+                          <i class="chipo-icon-shopping-cart"></i> Vào giỏ hàng
+                      </a>
+                  </li>
+                  <li class="pull-right">
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+`;
 /*
 $.get(chrome.runtime.getURL('../template/popup.html'), function(data) {
   var html = $.parseHTML(data);
@@ -146,11 +175,16 @@ $.get(chrome.runtime.getURL('../template/popup.html'), function(data) {
   addon.popup = html;
 });
 */
-$.get(chrome.runtime.getURL('../template/priceBox.html'), function(data) {
-  var html = $.parseHTML(data);
-  $(html)
-    .find('#exchange_rate')
-    .text(rules.exchangeRate);
-  addon.box = html;
-});
-//*/
+addon.boxPrice = `
+    <div class="chipo-box-info">
+      <div class="chipo-basic-info">
+          <ul>
+              <li>Giá bán: <span id="sell_price" class="text-chipo">đ</span></li>
+              <li>Tỷ giá 1<span class="chipo-yen">¥</span>: <span id="exchange_rate" class="text-chipo">đ</span>
+              </li>
+              <li>Còn <span id="stock" class="text-chipo">0</span> sản phẩm</li>
+          </ul>
+      </div>
+      <div class="chipo-warning hidden"></div>
+    </div>    
+`;
