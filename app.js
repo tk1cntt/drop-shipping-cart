@@ -17,7 +17,7 @@ function start() {
   }
 
   setTimeout(function() {
-    addTaskBar(siteName);
+    addTaskBar();
     // addTranslate(siteName);
     site ? site.init() : null;
     setInterval(function() {
@@ -38,69 +38,19 @@ function start() {
 /**
  * Create task bar and modal on page
  */
-function addTaskBar(domain) {
+function addTaskBar() {
   // Make the toolbar
   var elem = document.createElement('div');
   $(elem).addClass('_chipo_template');
-  document.body.insertBefore(elem, document.body.childNodes[0]);
   $(elem).css({ display: 'block' });
   $(elem).html(addon.toolbar);
+  $(elem).appendTo(document.body);
+  // document.body.appendchild(elem);
   // Make popup
-  var html = addon.popup;
-  $(html).appendTo(document.body);
-  chrome.storage.sync.get('translateWarning', function(result) {
-    html = "<div class='chipo-toggle-container'>";
-    if (
-      result.translateWarning ||
-      typeof result.translateWarning === 'undefined'
-    ) {
-      html += "<a href='javascript:;' id='chipo-toggle-addon'>Thu gọn</a>";
-    } else {
-      html += "<a href='javascript:;' id='chipo-toggle-addon'>Mở rộng</a>";
-      $('.chipo-alert').addClass('collapsed');
-      $('.chipo-alert').hide();
-    }
-    html += '</div>';
-    $(html).appendTo(document.body);
-  });
-  // if (rules.currentVersion !== rules.newestVersion) {
-  //     $("#version-warning").removeAttr('style');
-  // }
-  // Translate if set
-  chrome.storage.sync.get('translateAuto', function(result) {
-    if (result.translateAuto || typeof result.translateAuto === 'undefined') {
-      $('#_is_translate').attr('checked', 'checked');
-      addTranslate(domain);
-    } else {
-      $('#_is_translate').removeAttr('checked');
-    }
-  });
+  // var html = addon.popup;
+  // $(html).appendTo(document.body);
   // Handle button on taskbar
   setTimeout(function() {
-    // Handle collapse button
-    $('#chipo-toggle-addon').click(function() {
-      if ($('.chipo-alert').hasClass('collapsed')) {
-        $(this).text('Thu gọn');
-        $('.chipo-alert').removeClass('collapsed');
-        chrome.storage.sync.set({ translateWarning: true });
-      } else {
-        $(this).text('Mở rộng');
-        $('.chipo-alert').addClass('collapsed');
-        chrome.storage.sync.set({ translateWarning: false });
-      }
-      $('.chipo-alert').toggle('1000');
-    });
-    // Handle translate checkbox
-    $('#_is_translate').change(function() {
-      if ($(this).is(':checked')) {
-        addTranslate(domain);
-        chrome.storage.sync.set({ translateAuto: true });
-      } else {
-        removeTranslate(domain);
-        chrome.storage.sync.set({ translateAuto: false });
-      }
-    });
-    // Handle order button
     $('._addToCart').click(function() {
       if (site) {
         var product = site.getProducts ? site.getProducts() : site.getProduct();
@@ -160,10 +110,6 @@ function addTaskBar(domain) {
       }
     });
   }, 1000);
-  // $("#load_exchange_rate").click(function () {
-  //     tool.calculateExchangeRate();
-  //     $("#exchange_rate").text(rules.exchangeRate);
-  // });
 }
 
 /**

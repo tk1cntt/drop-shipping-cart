@@ -10,8 +10,7 @@
       "matches": ["<all_urls>"],
       "css":["style.css"],
       "js": ["jquery-2.2.3.min.js", "config.js", "tools.js", "tmall.js", "app.js"],
-      "run_at": "document_start",
-      "exclude_matches": ["https://www.youtube.com/*"]
+      "run_at": "document_start"
     }
   ],
   "permissions": [

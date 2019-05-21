@@ -324,25 +324,10 @@ var tmall = function() {
    **/
   self.renderView = function(product) {
     var div = $('<div>');
-    var html = `
-    <div class="chipo-box-info">
-      <div class="chipo-basic-info">
-          <ul>
-              <li>Giá bán: <span id="sell_price" class="text-chipo">620.330đ</span></li>
-              <li>Tỷ giá 1<span class="chipo-yen">¥</span>: <span id="exchange_rate" class="text-chipo">3.485đ</span>
-              </li>
-              <li>Còn <span id="stock" class="text-chipo">15</span> sản phẩm</li>
-          </ul>
-      </div>
-      <div class="chipo-warning hidden"></div>
-    </div>
-    `;
-    $(div).html(html);
+    // var html = addon.boxPrice;
+    $(div).html(addon.boxPrice);
     $(div).addClass('tm-clear');
     $(rules.info.TMALL.box_after).after($(div));
-    // if ($(rules.info.TMALL.product.hiddenPrice).length) {
-    //     $('.chipo-warning').removeClass('hidden');
-    // }
     $('.chipo-box-info #stock').text(product.stock);
     if (product.itemPrice) {
       $('.chipo-box-info #sell_price').text(product.itemPrice + 'đ');
