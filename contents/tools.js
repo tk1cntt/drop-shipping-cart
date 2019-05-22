@@ -117,6 +117,7 @@ var tools = function() {
       website: shop.website,
       items: product
     };
+    console.log("Add item to cart", cart);
     self.sendAjax(addUrl, 'POST', cart, function(resp) {
       if (resp && resp.success) {
         if ($('.translated-ltr').length) {

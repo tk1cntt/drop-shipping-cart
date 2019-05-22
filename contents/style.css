@@ -88,6 +88,10 @@
     display: inline-block;
 }
 
+.chipo-wrapper ul.chipo-list-inline {
+    padding-top: 13px !important;
+}
+
 .chipo-wrapper ul.chipo-list-inline > li {
     height: 25px;
     display: inline-block;

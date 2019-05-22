@@ -263,7 +263,7 @@ var tmall = function() {
           if (elem.attr('style')) {
             var imgUrl = elem.attr('style').match(/\/\/.+\..+\.[\w]{3,4}/g);
             imgUrl = imgUrl[0].replace(/[\d]+x[\d]+/, '500x500');
-            propertiesImages += 'http:' + imgUrl + ';';
+            propertiesImages += 'https:' + imgUrl + ';';
           }
         }
         // asign to product

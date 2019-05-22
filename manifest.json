@@ -5,11 +5,15 @@
   "version": "1.0.0",
   "description":
     "Mua hang ho",
+  "background": {
+    "scripts": ["js/jquery-2.2.3.min.js", "background/background.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css":["style.css"],
-      "js": ["jquery-2.2.3.min.js", "config.js", "tools.js", "tmall.js", "app.js"],
+      "css":["contents/style.css"],
+      "js": ["js/jquery-2.2.3.min.js", "contents/config.js", "contents/tools.js", "contents/tmall.js", "contents/app.js"],
       "run_at": "document_start"
     }
   ],
