@@ -12,8 +12,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css":["contents/style.css"],
-      "js": ["js/jquery-2.2.3.min.js", "contents/config.js", "contents/tools.js", "contents/tmall.js", "contents/app.js"],
+      "css":["css/style.css", "css/bootstrap.min.css"],
+      "js": ["js/jquery.min.js", "js/bootstrap.min.js", "contents/config.js", "contents/tools.js", "contents/tmall.js", "contents/app.js"],
       "run_at": "document_start"
     }
   ],

@@ -47,8 +47,10 @@ function addTaskBar() {
   $(elem).appendTo(document.body);
   // document.body.appendchild(elem);
   // Make popup
-  // var html = addon.popup;
-  // $(html).appendTo(document.body);
+  var popup = addon.popup;
+  $(popup).appendTo(document.body);
+  var loginPopup = addon.login;
+  $(loginPopup).appendTo(document.body);
   // Handle button on taskbar
   setTimeout(function() {
     $('._addToCart').click(function() {

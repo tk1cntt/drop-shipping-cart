@@ -125,7 +125,7 @@ var tools = function() {
         } else {
           $('.ls-warning').css('display', 'none');
         }
-        $('#myChipoModal-order').chipoModal('toggle');
+        $('#myChipoModal-login').modal('show');
         var totalAmount = 0;
         $.each(cart.items, function(index, value) {
           totalAmount += value.totalAmountNDT;

@@ -153,6 +153,42 @@ addon.toolbar = `
     </div>
     </div>
 `;
+addon.popup = `
+    <div class="modal fade" id="myChipoModal-order" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>This is a small modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+`;
+addon.login = `
+    <div class="modal fade" id="myChipoModal-login" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="modal-body">
+            <p>Please login to ...</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+`;
 /*
 $.get(chrome.runtime.getURL('../template/popup.html'), function(data) {
   var html = $.parseHTML(data);
@@ -173,5 +209,5 @@ addon.boxPrice = `
           </ul>
       </div>
       <div class="chipo-warning hidden"></div>
-    </div>    
+    </div>
 `;
