@@ -95,6 +95,12 @@ var tools = function() {
     );
   };
 
+  self.getLocalStorage = function(key, callback){
+    chrome.storage.local.get(key, function(value){
+        callback(value);
+    });
+  };
+
   /**
    * Add the product to the cart using ajax
    * @param {Array} products
@@ -117,24 +123,26 @@ var tools = function() {
       website: shop.website,
       items: product
     };
-    console.log("Add item to cart", cart);
-    self.sendAjax(addUrl, 'POST', cart, function(resp) {
-      if (resp && resp.success) {
-        if ($('.translated-ltr').length) {
-          $('.ls-warning').css('display', 'block');
-        } else {
-          $('.ls-warning').css('display', 'none');
-        }
-        $('#myChipoModal-login').modal('show');
-        var totalAmount = 0;
-        $.each(cart.items, function(index, value) {
-          totalAmount += value.totalAmountNDT;
+    self.getLocalStorage("token", function(resp) {
+      console.log("getLocalStorage", resp);
+      if (resp.token) {
+        console.log("Add item to cart", cart);
+        self.sendAjax(addUrl, 'POST', cart, function(resp) {
+          if (resp && resp.success) {
+            $('#myChipoModal-order').modal('show');
+            var totalAmount = 0;
+            $.each(cart.items, function(index, value) {
+              totalAmount += value.totalAmountNDT;
+            });
+            totalAmount = Math.round(totalAmount * 100) / 100;
+            $('.ls-deposit p').text(
+              'Số tiền của sản phẩm phải trả: ' + totalAmount + ' NDT'
+            );
+            $('#chipo-textarea').val('');
+          }
         });
-        totalAmount = Math.round(totalAmount * 100) / 100;
-        $('.ls-deposit p').text(
-          'Số tiền của sản phẩm phải trả: ' + totalAmount + ' NDT'
-        );
-        $('#chipo-textarea').val('');
+      } else {
+        $('#myChipoModal-login').modal('show');
       }
     });
   };

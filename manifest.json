@@ -6,7 +6,7 @@
   "description":
     "Mua hang ho",
   "background": {
-    "scripts": ["js/jquery-2.2.3.min.js", "background/background.js"],
+    "scripts": ["js/jquery.min.js", "background/background.js"],
     "persistent": false
   },
   "content_scripts": [

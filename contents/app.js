@@ -20,6 +20,14 @@ function start() {
     addTaskBar();
     // addTranslate(siteName);
     site ? site.init() : null;
+    tool.getLocalStorage("token", function(resp) {
+      console.log("getLocalStorage", resp);
+      if (resp.token) {
+
+      } else {
+        $('#myChipoModal-login').modal('show');
+      }
+    });
     setInterval(function() {
       if (site.updateView) {
         site.updateView();
