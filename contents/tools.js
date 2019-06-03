@@ -3,8 +3,9 @@
  */
 var tools = function() {
   var self = this;
-  self.baseUrl = 'https://chipo.vn/';
+  self.baseUrl = 'http://localhost:8080/api';//'https://chipo.vn/';
   var addUrl = 'ext/add';
+  var loginUrl = '/authenticate';
   var exchangeRateUrl = 'exchangerate/';
   var saveProductUrl = 'cart/saveLink';
   var checkVersionUrl = 'ext/version';
@@ -87,6 +88,7 @@ var tools = function() {
   self.sendAjax = function(url, method, data, callBack) {
     chrome.runtime.sendMessage(
       {
+        action: 'ajax',
         url: self.baseUrl + url,
         method: method,
         data: data
@@ -95,9 +97,30 @@ var tools = function() {
     );
   };
 
-  self.getLocalStorage = function(key, callback){
-    chrome.storage.local.get(key, function(value){
-        callback(value);
+  self.sendLogin = function(url, method, data, callBack) {
+    chrome.runtime.sendMessage(
+      {
+        action: 'login',
+        url: self.baseUrl + url,
+        method: method,
+        data: data
+      },
+      callBack
+    );
+  };
+
+  self.checkLogin = function(callBack){
+    chrome.runtime.sendMessage(
+      {
+        action: 'verify'
+      },
+      callBack
+    );
+  };
+
+  self.doLogin = function(data, callback) {
+    self.sendLogin(loginUrl, 'POST', data, function(resp) {
+      callback(resp);
     });
   };
 
@@ -123,9 +146,9 @@ var tools = function() {
       website: shop.website,
       items: product
     };
-    self.getLocalStorage("token", function(resp) {
-      console.log("getLocalStorage", resp);
-      if (resp.token) {
+    self.checkLogin(function(resp) {
+      console.log("checkLogin", resp);
+      if (resp === "ok") {
         console.log("Add item to cart", cart);
         self.sendAjax(addUrl, 'POST', cart, function(resp) {
           if (resp && resp.success) {

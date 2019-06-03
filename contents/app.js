@@ -20,9 +20,8 @@ function start() {
     addTaskBar();
     // addTranslate(siteName);
     site ? site.init() : null;
-    tool.getLocalStorage("token", function(resp) {
-      console.log("getLocalStorage", resp);
-      if (resp.token) {
+    tool.checkLogin(function(resp) {
+      if (resp === "ok") {
 
       } else {
         $('#myChipoModal-login').modal('show');
@@ -61,7 +60,14 @@ function addTaskBar() {
   $(loginPopup).appendTo(document.body);
   // Handle button on taskbar
   setTimeout(function() {
+    $('#doLogin').click(function() {
+      tool.doLogin({ username: $('#loginUser').val(), password: $('#loginPassword').val()}, function(resp) {
+        console.log("doLogin-response", resp);
+        $('#myChipoModal-login').modal('hide');
+      });
+    });
     $('._addToCart').click(function() {
+      console.log("Clicked to _addToCart");
       if (site) {
         var product = site.getProducts ? site.getProducts() : site.getProduct();
         if (!product) {
