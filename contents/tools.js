@@ -4,10 +4,10 @@
 var tools = function() {
   var self = this;
   self.baseUrl = 'http://localhost:8080/api';//'https://chipo.vn/';
-  var addUrl = 'ext/add';
+  var addUrl = '/shopping-carts';
   var loginUrl = '/authenticate';
   var exchangeRateUrl = 'exchangerate/';
-  var saveProductUrl = 'cart/saveLink';
+  var saveProductUrl = '/shopping-carts';
   var checkVersionUrl = 'ext/version';
 
   self.getCartUrl = self.baseUrl + 'backend/#/gio-hang';
