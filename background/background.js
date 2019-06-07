@@ -45,6 +45,23 @@ chrome.runtime.onMessage.addListener(
         } else if (request.action === 'verify') {
             var token = localStorage.getItem('token');
             if (token && token !== "undefined") {
+                $.ajax({
+                    url: request.url,
+                    method: "GET",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+                    },
+                    contentType: "application/json",
+                    crossDomain: true,
+                    error: function({ status }) { 
+                        if (status === 401) {
+                            localStorage.removeItem('token');
+                            token = undefined;
+                        }
+                    }
+                });
+            }
+            if (token && token !== "undefined") {
                 sendResponse("ok");
             } else {
                 sendResponse("error");

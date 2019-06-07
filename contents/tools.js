@@ -6,6 +6,7 @@ var tools = function() {
   self.baseUrl = 'http://localhost:8080/api';//'https://chipo.vn/';
   var addUrl = '/shopping-carts';
   var loginUrl = '/authenticate';
+  var getSession = '/account';
   var exchangeRateUrl = 'exchangerate/';
   var saveProductUrl = '/shopping-carts';
   var checkVersionUrl = 'ext/version';
@@ -112,7 +113,8 @@ var tools = function() {
   self.checkLogin = function(callBack){
     chrome.runtime.sendMessage(
       {
-        action: 'verify'
+        action: 'verify',
+        url: self.baseUrl + getSession,
       },
       callBack
     );

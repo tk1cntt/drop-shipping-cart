@@ -267,10 +267,10 @@ var tmall = function() {
           }
         }
         // asign to product
-        product.propetiesType = propertiesType.slice(0, -1);
-        product.propetiesId = propertiesId.slice(0, -1);
-        product.propetiesName = propertiesName.slice(0, -1);
-        product.propetiesImage = propertiesImages.slice(0, -1);
+        product.propertiesType = propertiesType.slice(0, -1);
+        product.propertiesId = propertiesId.slice(0, -1);
+        product.propertiesName = propertiesName.slice(0, -1);
+        product.propertiesImage = propertiesImages.slice(0, -1);
         return product;
       }
     };
