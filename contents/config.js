@@ -136,18 +136,17 @@ addon.toolbar = `
             <ul class="chipo-list-inline">
                 <li class="" data-spm-anchor-id="a220o.1000855.0.i0.18b65b0d8FZMPx">
                     <!--<a id='_add-to-favorite' href='javascript:;' class='save-product-ao'> Lưu sản phẩm </a>-->
-                    <a href="https://chipo.vn/" style="color: white" target="_blank" class="_chipo-home">Trang chủ</a>
+                    <a href="http://159.65.6.135:8080/" style="color: white" target="_blank" class="_chipo-home">Trang chủ</a>
                 </li>
                 <li>
                     <a href="javascript:;" class="btn _addToCart btn-order" data-target="#myChipoModal-order">
-                        <i class="pull-left"></i> ĐẶT HÀNG CHIPO
+                        <i class="pull-left"></i> ĐẶT HÀNG NHANH
                     </a>
-                    <a href="https://chipo.vn/backend/#/gio-hang" target="_blank" class="chipo-link _link-detail-cart">
+                    <a href="http://159.65.6.135:8080/#/shopping-cart" target="_blank" class="chipo-link _link-detail-cart">
                         <i class="chipo-icon-shopping-cart"></i> Vào giỏ hàng
                     </a>
                 </li>
-                <li class="pull-right">
-                </li>
+                <li class="pull-right"></li>
             </ul>
         </div>
     </div>
@@ -174,20 +173,22 @@ addon.login = `
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Login</h4>
+            <h4 class="modal-title">Đăng nhập</h4>
           </div>
           <div class="modal-body">
-            <div class="form-group">
-              <label for="email">Username:</label>
-              <input type="text" class="form-control" id="loginUser">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Password:</label>
-              <input type="password" class="form-control" id="loginPassword">
-            </div>
-            <button type="button" class="btn btn-primary" id="doLogin">Login</button>
+          <div class="form-group">
+            <label for="email">Số điện thoại</label>
+            <input type="text" class="form-control" id="loginUser">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Mật khẩu tạm (<a href="http://159.65.6.135:8080" target="_blank">Cách lấy mật khẩu tạm</a>)</label>
+            <input type="password" class="form-control" id="loginPassword">
+          </div>
+          <button type="button" class="btn btn-primary" id="doLogin">Đăng nhập</button>
+          <br />
+          
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
           </div>
         </div>
       </div>
