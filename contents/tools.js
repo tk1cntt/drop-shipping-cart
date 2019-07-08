@@ -4,12 +4,13 @@
 var tools = function() {
   var self = this;
   self.baseUrl = 'http://localhost:8080/api';//'https://chipo.vn/';
+  // self.baseUrl = 'http://159.65.6.135:8080/api';//'https://chipo.vn/';
   var addUrl = '/shopping-carts';
   var loginUrl = '/authenticate';
   var getSession = '/account';
-  var exchangeRateUrl = 'exchangerate/';
+  var exchangeRateUrl = '/exchangerate/';
   var saveProductUrl = '/shopping-carts';
-  var checkVersionUrl = 'ext/version';
+  var checkVersionUrl = '/extention/version';
 
   self.getCartUrl = self.baseUrl + 'backend/#/gio-hang';
 
@@ -149,21 +150,10 @@ var tools = function() {
       items: product
     };
     self.checkLogin(function(resp) {
-      console.log("checkLogin", resp);
       if (resp === "ok") {
-        console.log("Add item to cart", cart);
         self.sendAjax(addUrl, 'POST', cart, function(resp) {
-          if (resp && resp.success) {
+          if (resp && resp.id) {
             $('#myChipoModal-order').modal('show');
-            var totalAmount = 0;
-            $.each(cart.items, function(index, value) {
-              totalAmount += value.totalAmountNDT;
-            });
-            totalAmount = Math.round(totalAmount * 100) / 100;
-            $('.ls-deposit p').text(
-              'Số tiền của sản phẩm phải trả: ' + totalAmount + ' NDT'
-            );
-            $('#chipo-textarea').val('');
           }
         });
       } else {
