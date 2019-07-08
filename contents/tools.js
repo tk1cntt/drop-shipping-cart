@@ -8,7 +8,7 @@ var tools = function() {
   var addUrl = '/shopping-carts';
   var loginUrl = '/authenticate';
   var getSession = '/account';
-  var exchangeRateUrl = '/exchangerate/';
+  var exchangeRateUrl = '/exchange-rate';
   var saveProductUrl = '/shopping-carts';
   var checkVersionUrl = '/extention/version';
 
@@ -65,9 +65,9 @@ var tools = function() {
    */
   self.calculateExchangeRate = function() {
     self.sendAjax(exchangeRateUrl, 'GET', null, function(resp) {
-      if (resp && resp.success) {
-        rules.exchangeNum = resp.data;
-        var rateStr = parseInt(resp.data).toLocaleString('vi');
+      if (resp && resp.id) {
+        rules.exchangeNum = resp.rate;
+        var rateStr = parseInt(resp.rate).toLocaleString('vi');
         if (rateStr.indexOf(',') > 0) {
           rateStr = rateStr.replace(',', '.');
         }
