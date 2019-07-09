@@ -3,16 +3,14 @@
  */
 var tools = function() {
   var self = this;
-  self.baseUrl = 'http://localhost:8080/api';//'https://chipo.vn/';
-  // self.baseUrl = 'http://159.65.6.135:8080/api';//'https://chipo.vn/';
+  self.baseUrl = 'http://localhost:8080/api';
+  // self.baseUrl = 'http://178.128.125.104:8080/api';
   var addUrl = '/shopping-carts';
   var loginUrl = '/authenticate';
   var getSession = '/account';
   var exchangeRateUrl = '/exchange-rate';
   var saveProductUrl = '/shopping-carts';
   var checkVersionUrl = '/extention/version';
-
-  self.getCartUrl = self.baseUrl + 'backend/#/gio-hang';
 
   /**
    * Get name of the site
@@ -154,6 +152,8 @@ var tools = function() {
         self.sendAjax(addUrl, 'POST', cart, function(resp) {
           if (resp && resp.id) {
             $('#myChipoModal-order').modal('show');
+          } else {
+            $('#myChipoModal-fail').modal('show');
           }
         });
       } else {

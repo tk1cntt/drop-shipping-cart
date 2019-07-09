@@ -136,13 +136,13 @@ addon.toolbar = `
             <ul class="chipo-list-inline">
                 <li class="" data-spm-anchor-id="a220o.1000855.0.i0.18b65b0d8FZMPx">
                     <!--<a id='_add-to-favorite' href='javascript:;' class='save-product-ao'> Lưu sản phẩm </a>-->
-                    <a href="http://159.65.6.135:8080/" style="color: white" target="_blank" class="_chipo-home">Trang chủ</a>
+                    <a href="http://178.128.125.104:8080/" style="color: white" target="_blank" class="_chipo-home">Trang chủ</a>
                 </li>
                 <li>
                     <a href="javascript:;" class="btn _addToCart btn-order" data-target="#myChipoModal-order">
                         <i class="pull-left"></i> ĐẶT HÀNG NHANH
                     </a>
-                    <a href="http://159.65.6.135:8080/#/shopping-cart" target="_blank" class="chipo-link _link-detail-cart">
+                    <a href="http://178.128.125.104:8080/#/shopping-cart" target="_blank" class="chipo-link _link-detail-cart">
                         <i class="chipo-icon-shopping-cart"></i> Vào giỏ hàng
                     </a>
                 </li>
@@ -166,6 +166,26 @@ addon.popup = `
         </div>
       </div>
     </div>
+    <div class="modal fade" id="myChipoModal-fail" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Bảo trì hệ thống.</h4>
+          </div>
+          <div class="modal-body">
+            Hệ thống đang bảo trì.
+            <br />
+            Xin hãy thử lại sau it phút nữa.
+            <br />
+            Liên hệ chăm sóc khách hàng qua hotline 190000000.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
 `;
 addon.login = `
     <div class="modal fade" id="myChipoModal-login" role="dialog">
@@ -181,7 +201,7 @@ addon.login = `
             <input type="text" class="form-control" id="loginUser">
           </div>
           <div class="form-group">
-            <label for="pwd">Mật khẩu tạm (<a href="http://159.65.6.135:8080" target="_blank">Cách lấy mật khẩu tạm</a>)</label>
+            <label for="pwd">Mật khẩu tạm (<a href="http://178.128.125.104:8080" target="_blank">Cách lấy mật khẩu tạm</a>)</label>
             <input type="password" class="form-control" id="loginPassword">
           </div>
           <button type="button" class="btn btn-primary" id="doLogin">Đăng nhập</button>
