@@ -11,19 +11,16 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.tmall.hk/*", "*://*.tmall.com/*"],
+      "matches": ["*://*.tmall.hk/*", "*://*.tmall.com/*", "*://*.taobao.com/*", "*://*.1688.com/*"],
       "css":["css/style.css", "css/bootstrap.min.css"],
-      "js": ["js/jquery.min.js", "js/bootstrap.min.js", "contents/config.js", "contents/tools.js", "contents/tmall.js", "contents/app.js"],
+      "js": ["js/jquery.min.js", "js/bootstrap.min.js", "contents/config.js", "contents/tools.js", "contents/tmall.js", "contents/taobao.js", "contents/1688.js", "contents/app.js"],
       "run_at": "document_start"
     }
   ],
   "permissions": [
-    "tabs",
-    "activeTab",
     "http://*/*",
     "https://*/*",
-    "storage",
-    "alarms"
+    "storage"
   ],
   "minimum_chrome_version": "60",
   "icons": {
